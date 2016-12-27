@@ -1,0 +1,29 @@
+<div class="jumbotron">
+    <h1 class="text-center">Agenda</h1>
+</div>
+
+<p class="alert alert-info" ng-show="mensagem.length">
+    {{ mensagem }}
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="" action="index.html" method="post">
+
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <a href="schedule/new" class="btn btn-primary"> Novo Compromisso </a>
+                </span>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="row" style =" padding-top: 30px">
+    <meu-painel class="col-md-2" ng-repeat="compromise in compromises" titulo="{{ compromise.titulo }}">
+        <minha-foto url="{{ compromise.url }}" titulo="{{ compromise.titulo }}"></minha-foto>
+        <a href="schedule/edit/{{compromise._id}}" class="btn btn-primary btn-block">Editar</a>
+        <meu-botao-perigo acao="remover( compromise )" nome="Remover"></meu-botao-perigo>
+    </meu-painel>
+</div>

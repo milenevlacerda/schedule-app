@@ -1,0 +1,39 @@
+<div class="page-header text-center">
+    <h1>{{ compromise.titulo }}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{ mensagem }}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Título</label>
+            <input name="titulo" class="form-control" ng-model="compromise.titulo" required ng-maxlength="20">
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
+                Título obrigatório
+            </span>
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
+                Deve ter no máximo 20 caracteres
+            </span>
+        </div>
+        <div class="form-group">
+            <label>URL</label>
+            <input name="url" class="form-control" ng-model="compromise.url" required >
+
+            <span ng-show="formulario.$submitted && formulario.url.$error.required" class="form-control alert-danger">
+                URL obrigatória
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Descrição</label>
+            <textarea name="descricao" class="form-control" ng-model="compromise.descricao"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid"> Salvar </button>
+         <a href="/" class="btn btn-primary" meu-focus>Voltar</a>
+        <hr>
+    </div>
+    <div class="col-md-6">
+        <minha-foto url="{{ compromise.url }}" titulo="{{ compromise.titulo }}"></minha-foto>
+    </div>
+</form>
