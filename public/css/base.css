@@ -1,0 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600);
+
+body {
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    outline: none;
+}
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+input{
+    font-size: 100%
+}
