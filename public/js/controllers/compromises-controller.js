@@ -7,7 +7,9 @@ angular.module( 'schedule' ).controller( 'CompromisesController', function( $sco
 
 
     recursoCompromisso.query( function( compromises ) {
-        $scope.compromises = compromises;
+        $scope.compromises = compromises.slice().sort( function( a, b ){
+            return new Date( a.dateTime )  >  new Date( b.dateTime ) ? -1 : 1;
+        });
     }, function( erro ) {
         console.log( erro );
     });
