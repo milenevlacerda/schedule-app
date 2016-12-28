@@ -1,4 +1,4 @@
-angular.module( 'schedule', [ 'minhasDiretivas', 'ngRoute', 'meusServicos' ] )
+angular.module( 'schedule', [ 'minhasDiretivas', 'ngRoute', 'meusServicos' ])
 .config( function( $routeProvider, $locationProvider ) {
 
     $locationProvider.html5Mode( true );
