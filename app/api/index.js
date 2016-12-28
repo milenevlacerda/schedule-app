@@ -5,7 +5,6 @@ var db = require( '../../config/database' );
 var api = {};
 
 api.create = function( req, res ) {
-
     db.insert( req.body, function( err, newDoc ) {
         if( err ) {
             return console.log( err );
@@ -38,6 +37,13 @@ api.list = function( req, res ) {
         }
 
         res.json( doc );
+    });
+};
+
+api.find = function(req, res) {
+   db.findOne({_id: req.params.compromiseId }, function(err, doc) {
+        if (err) return console.log(err);
+        res.json(doc);
     });
 };
 
