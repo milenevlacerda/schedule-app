@@ -1,7 +1,13 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title text-center"> {{ titulo }} </h3>
-    </div>
-    <div class="panel-body" ng-transclude>
+<div class="container">
+    <div class="row">
+        <div class="compromise col-sm-12 center">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12 box -title">
+                    <h3>{{ titulo }}</h3>
+                    <p>{{ descricao }}</p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 text-right box" ng-transclude></div>
+            </div>
+        </div>
     </div>
 </div>
