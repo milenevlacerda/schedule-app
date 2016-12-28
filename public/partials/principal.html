@@ -1,29 +1,34 @@
-<div class="jumbotron">
-    <h1 class="text-center">Agenda</h1>
-</div>
-
-<p class="alert alert-info" ng-show="mensagem.length">
-    {{ mensagem }}
-</p>
-
 <div class="row">
     <div class="col-md-12">
         <form class="" action="index.html" method="post">
 
-            <div class="input-group">
-                <span class="input-group-btn">
-                    <a href="schedule/new" class="btn btn-primary"> Novo Compromisso </a>
-                </span>
+            <div class="row new-compromise">
+                <div class="input-group center-compromise">
+                    <span class="input-group-btn">
+                        <a href="schedule/new" class="new-compromise-button">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            <span>Novo Compromisso</span>
+                        </a>
+                    </span>
+                </div>
             </div>
 
         </form>
     </div>
 </div>
 
-<div class="row" style =" padding-top: 30px">
-    <meu-painel class="col-md-2" ng-repeat="compromise in compromises" titulo="{{ compromise.titulo }}">
-        <minha-foto url="{{ compromise.url }}" titulo="{{ compromise.titulo }}"></minha-foto>
-        <a href="schedule/edit/{{compromise._id}}" class="btn btn-primary btn-block">Editar</a>
-        <meu-botao-perigo acao="remover( compromise )" nome="Remover"></meu-botao-perigo>
+<div class="row list-compromises" style =" padding-top: 30px">
+    <p class="alert alert-info col-md-8 col-sm-12 col-md-offset-2" ng-show="mensagem.length">
+        {{ mensagem }}
+    </p>
+
+    <meu-painel class="col-md-12" ng-repeat="compromise in compromises" titulo="{{ compromise.titulo }}" descricao="{{ compromise.descricao }}">
+        <div class="row">
+            <a href="schedule/edit/{{compromise._id}}" class="edit">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+            <meu-botao-perigo acao="remover( compromise )"></meu-botao-perigo>
+            <p class="details"> {{ compromise.dateTime | date:"dd/MM/yyyy 'às' HH:mm" }} </p>
+        </div>
     </meu-painel>
 </div>
