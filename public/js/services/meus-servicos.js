@@ -2,7 +2,6 @@
 
 angular.module( 'meusServicos', [ 'ngResource' ] )
 .factory( 'recursoCompromisso', function( $resource ) {
-
     return $resource( 'v1/schedule/:compromiseId', null, {
         'update': {
             method: 'PUT'
