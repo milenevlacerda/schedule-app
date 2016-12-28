@@ -9,6 +9,7 @@ module.exports  = function( app ) {
 
     app.route( '/v1/schedule/:compromiseId' )
         .delete( api.remove )
+        .get( api.find )
         .put( api.edit );
 
     // habilitando HTML5MODE
