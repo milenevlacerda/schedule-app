@@ -1,14 +1,18 @@
 <div class="page-header text-center">
-    <h1>{{ compromise.titulo }}</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="compromise-title">{{ compromise.titulo }}</h2>
+        </div>
+    </div>
 </div>
 
-<p ng-show="mensagem.length" class="alert alert-info">{{ mensagem }}</p>
+<p class="alert alert-info col-md-8 col-md-offset-2" ng-show="mensagem.length">{{ mensagem }}</p>
 
 <form novalidate name="formulario" class="row" ng-submit="submeter()">
-    <div class="col-md-6">
-        <div class="form-group">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="input-box input-effect form-group">
+            <input name="titulo" ng-model="compromise.titulo" required ng-maxlength="50" class="effect" type="text" placeholder="" maxlength="20" required/>
             <label>Título</label>
-            <input name="titulo" class="form-control" ng-model="compromise.titulo" required ng-maxlength="20">
             <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
                 Título obrigatório
             </span>
@@ -16,24 +20,26 @@
                 Deve ter no máximo 20 caracteres
             </span>
         </div>
-        <div class="form-group">
-            <label>URL</label>
-            <input name="url" class="form-control" ng-model="compromise.url" required >
-
-            <span ng-show="formulario.$submitted && formulario.url.$error.required" class="form-control alert-danger">
-                URL obrigatória
+        <div class="input-box input-effect form-group">
+            <input ng-model="compromise.dateTime" name="dateTime" required class="effect dateAndTime" type="datetime-local" required/>
+            <label class="dateAndHour">Data e Hora</label>
+            <span ng-show="formulario.$submitted && formulario.dateTime.$error.required" class="form-control alert-danger">
+                Data e Hora obrigatórios
             </span>
         </div>
-        <div class="form-group">
+        <div class="input-box input-effect form-group">
+            <textarea name="descricao" class="effect" ng-model="compromise.descricao"></textarea>
             <label>Descrição</label>
-            <textarea name="descricao" class="form-control" ng-model="compromise.descricao"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid"> Salvar </button>
-         <a href="/" class="btn btn-primary" meu-focus>Voltar</a>
+        <button type="submit" class="btn compromise-btn" ng-disabled="formulario.$invalid">
+            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+            Salvar
+        </button>
+         <a href="/" class="btn compromise-btn" meu-focus>
+             <i class="fa fa-arrow-left" aria-hidden="true"></i>
+             Voltar
+         </a>
         <hr>
-    </div>
-    <div class="col-md-6">
-        <minha-foto url="{{ compromise.url }}" titulo="{{ compromise.titulo }}"></minha-foto>
     </div>
 </form>
