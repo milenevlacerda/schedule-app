@@ -7,12 +7,28 @@
         <title>Agenda</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/efeitos.css">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
         <script src="js/lib/angular.min.js"></script>
-        <script src="js/lib/angular-route.min.js"></script>
         <script src="js/lib/angular-resource.min.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="https://use.fontawesome.com/b9fb10b39b.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script> -->
+        <script>
+        $( window ).load( function() {
+            $( ".input-box input, .input-box textarea" ).val( "" );
+            $( ".input-effect input, .input-effect textarea ").focusout( function(){
+                if( $( this ).val() != "" ) {
+                    $( this ).addClass( "has-content" );
+                }else{
+                    $( this ).removeClass( "has-content" );
+                }
+            });
+        });
+        </script>
 
         <script src="js/controllers/compromises-controller.js"></script>
         <script src="js/controllers/compromise-controller.js"></script>
@@ -20,12 +36,15 @@
         <script src="js/services/meus-servicos.js"></script>
     </head>
     <body>
+        <header class="header">
+            <h1 class="text-center">Agenda</h1>
+        </header>
 
-        <div class="container">
+        <div class="wrapper">
 
             <ng-view></ng-view>
 
-        </div><!-- fim container -->
+        </div>
 
     </body>
 </html>
