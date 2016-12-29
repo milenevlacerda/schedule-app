@@ -22,13 +22,13 @@
         {{ mensagem }}
     </p>
 
-    <meu-painel class="col-md-12" ng-repeat="compromise in compromises" titulo="{{ compromise.titulo }}" descricao="{{ compromise.descricao }}">
+    <list-compromises class="col-md-12" ng-repeat="compromise in compromises" titulo="{{ compromise.titulo }}" descricao="{{ compromise.descricao }}">
         <div class="row">
             <a href="schedule/edit/{{compromise._id}}" class="edit">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
             </a>
-            <meu-botao-perigo acao="remover( compromise )"></meu-botao-perigo>
+            <delete acao="remover( compromise )"></delete>
             <p class="details"> {{ compromise.dateTime | date:"dd/MM/yyyy 'às' HH:mm" }} </p>
         </div>
-    </meu-painel>
+    </list-compromises>
 </div>

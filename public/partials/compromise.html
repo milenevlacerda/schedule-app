@@ -11,7 +11,7 @@
 <form novalidate name="formulario" class="row" ng-submit="submeter()">
     <div class="col-md-8 col-md-offset-2 text-center">
         <div class="input-box input-effect form-group">
-            <input name="titulo" ng-model="compromise.titulo" required ng-maxlength="50" class="effect" type="text" placeholder="" maxlength="20" required/>
+            <input name="titulo" ng-model="compromise.titulo" required ng-maxlength="50" class="effect" type="text" placeholder="" maxlength="50" required/>
             <label>Título</label>
             <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
                 Título obrigatório
@@ -21,7 +21,16 @@
             </span>
         </div>
         <div class="input-box input-effect form-group">
-            <input ng-model="compromise.dateTime" name="dateTime" required class="effect dateAndTime" type="datetime-local" required/>
+            <input class="effect dateAndTime"
+            locale="pt-br"
+            name="dateTime"
+            ng-model="compromise.dateTime"
+            min-view="month"
+            max-view="hour"
+            format="LLL"
+            moment-picker
+            required/>
+
             <label class="dateAndHour">Data e Hora</label>
             <span ng-show="formulario.$submitted && formulario.dateTime.$error.required" class="form-control alert-danger">
                 Data e Hora obrigatórios

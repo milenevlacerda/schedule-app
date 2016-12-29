@@ -7,7 +7,8 @@ angular.module( 'schedule' ).controller( 'CompromiseController', function( $scop
 
     if( $routeParams.compromiseId ) {
         recursoCompromisso.get({ compromiseId: $routeParams.compromiseId }, function( compromise ) {
-            compromise.dateTime = new Date( compromise.dateTime );
+            // compromise.dateTime = new Date( compromise.dateTime );
+            compromise.dateTime = moment();
             $scope.compromise = compromise;
         }, function( erro ) {
             console.log( erro );
