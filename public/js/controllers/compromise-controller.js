@@ -1,6 +1,8 @@
 /* jshint esversion:6 */
 
-angular.module( 'schedule' ).controller( 'CompromiseController', function( $scope, createCompromise, recursoCompromisso, $routeParams ) {
+angular.module( 'schedule' ).controller( 'CompromiseController',
+    [ $scope, createCompromise, recursoCompromisso, $routeParams ,
+    function( $scope, createCompromise, recursoCompromisso, $routeParams ) {
 
     $scope.compromise = {};
     $scope.mensagem = '';
@@ -32,4 +34,4 @@ angular.module( 'schedule' ).controller( 'CompromiseController', function( $scop
         }
     };
 
-});
+}]);

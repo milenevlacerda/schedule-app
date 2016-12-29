@@ -1,6 +1,7 @@
 /* jshint esversion:6 */
 
-angular.module( 'schedule' ).controller( 'CompromisesController', function( $scope, recursoCompromisso ) {
+angular.module( 'schedule' ).controller( 'CompromisesController', [ $scope, recursoCompromisso,
+    function( $scope, recursoCompromisso ) {
 
     $scope.compromises = [];
     $scope.mensagem = '';
@@ -26,4 +27,4 @@ angular.module( 'schedule' ).controller( 'CompromisesController', function( $sco
             $scope.mensagem = `Não foi possível apagar o compromisso ' ${ compromise.titulo }' `;
         });
     };
-});
+}]);
