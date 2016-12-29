@@ -228,7 +228,6 @@
 input,
 textarea {
     width: 100%;
-    /*color: #ff4450;*/
     color: #666666;
     font-size: 20px;
     width: 100%;
@@ -243,21 +242,26 @@ textarea {
     border: 0;
     border-radius: 5px;
     padding: 43px 7px 7px;
-    border: 3px solid #8a8a8a;
+    border: 3px solid rgba(138, 138, 138, 0.4);
     background-color: transparent;
+}
+
+.effect:focus {
+    border-color: rgba(150, 0, 233, 0.55);
 }
 
 .effect.dateAndTime {
     padding: 32px 10px 10px;
 }
 
-.effect ~ .focus-border{
+.focus-border {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
     height: 0;
     transition: 0.4s;
+    border-color: #9600e9;
 }
 
 .effect:focus ~ .focus-border,
@@ -266,7 +270,8 @@ textarea {
     transition: 0.4s;
 }
 
-.effect ~ label {
+label,
+label {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -277,7 +282,7 @@ textarea {
     letter-spacing: 0.5px;
 }
 
-.effect ~ label.dateAndHour {
+label.dateAndHour {
     top: 4px;
 }
 
@@ -289,9 +294,31 @@ textarea {
   transition: 0.3s;
 }
 
-.effect:focus ~ label.dateAndHour,
-.has-content.effect.dateAndHour ~ label{
+.effect:focus ~ .moment-piker .dateAndHour,
+.has-content.effect ~ .moment-piker .dateAndHour{
   top: -30px;
+}
+
+/*
+* Date Picker
+*/
+.moment-picker .moment-picker-container {
+    top: auto;
+    bottom: 100%;
+    color: rgb(152, 99, 183) !important;
+    width: 405px;
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    margin-top: auto;
+    margin-bottom: 7px;
+}
+
+.moment-picker .moment-picker-container.month-view.open {
+    background: #fff;
+    min-height: 340px;
+}
+.moment-picker-container thead:first-child {
+    color: #ff4450;
 }
 
 
