@@ -3,7 +3,7 @@
 */
 
 .header {
-    background: #9600e9;
+    background: #00bed6;
 }
 
 .header > h1 {
@@ -11,7 +11,7 @@
     margin: 0;
     color: #fff;
     font-family: Lobster,cursive;
-    font-size: 63px;
+    font-size: 52px;
 }
 
 .icon {
@@ -83,7 +83,7 @@
     min-height: 100vh;
     padding-left: 15px;
     padding-right: 15px;
-    background: rgb(243, 237, 246);
+    background: rgba(245, 245, 245, 0.57);
 }
 
 .compromise {
@@ -95,7 +95,7 @@
 }
 
 .box > h3 {
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(255, 68, 80);
     word-wrap: break-word;
     font-weight: 500;
@@ -111,7 +111,7 @@
 }
 
 .new-compromise-button {
-    font-size: 20px;
+    font-size: 17px;
     margin: 40px auto;
 	border: 3px solid #fff;
     color: #fff;
@@ -166,10 +166,10 @@
 }
 
 .new-compromise-button:hover {
-    color: #9600e9;
+    color: #00bed6;
     z-index: 0;
     text-decoration: none;
-    border-color: #9600e9;
+    border-color: #00bed6;
 }
 
 .new-compromise-button:hover::before {
@@ -210,7 +210,7 @@
 }
 
 .compromise-btn {
-    padding: 30px 98px;
+    padding: 22px 85px;
     display: inline-block;
     background: #ff4450;
     color: #fff;
@@ -247,7 +247,7 @@ textarea,
 .dateInput {
     width: 100%;
     color: #666666;
-    font-size: 20px;
+    font-size: 15px;
     width: 100%;
     padding:
     outline: none;
@@ -260,12 +260,12 @@ textarea,
     border: 0;
     border-radius: 5px;
     padding: 43px 7px 7px;
-    border: 3px solid rgba(138, 138, 138, 0.4);
+    border: 2px solid rgba(138, 138, 138, 0.4);
     background-color: transparent;
 }
 
 .effect:focus {
-    border-color: rgba(150, 0, 233, 0.55);
+    border-color: #00bed6;
 }
 
 .effect.dateAndTime {
@@ -279,7 +279,7 @@ textarea,
     width: 0;
     height: 0;
     transition: 0.4s;
-    border-color: #9600e9;
+    border-color: #00bed6;
 }
 
 .effect:focus ~ .focus-border,
@@ -293,8 +293,8 @@ label {
     position: absolute;
     left: 10px;
     top: 10px;
-    font-size: 20px;
-    color: #9600e9;
+    font-size: 17px;
+    color: #00bed6;
     transition: 0.3s;
     z-index: -1;
     letter-spacing: 0.5px;
@@ -308,7 +308,7 @@ label.dateAndHour {
 .has-content.effect ~ label{
   top: -30px;
   font-size: 20px;
-  color: #9600e9;
+  color: #00bed6;
   transition: 0.3s;
 }
 
@@ -322,7 +322,7 @@ label.dateAndHour {
 */
 .flatpickr-calendar.open {
     font-family: 'Raleway', sans-serif !important;
-    width: 340px !important;
+    width: 300px !important;
     color: rgb(152, 99, 183) !important;
     font-size: 15px;
 }
@@ -348,7 +348,7 @@ span.flatpickr-weekday {
 
 .flatpickr-day {
     font-weight: 500 !important;
-    max-width: 35px !important;
+    max-width: 30px !important;
     height: 38px !important;
     margin: 1px 6px !important;
 }
@@ -394,7 +394,8 @@ span.flatpickr-weekday {
 @media ( max-width: 592px) {
 
     .compromise-btn  {
-        padding: 30px 74px;
+        padding: 22px 85px;
+        /*padding: 30px 74px;*/
         margin: 10px auto;
         max-width: 222px;
         display: block;
