@@ -12,7 +12,7 @@
     <div class="col-md-8 col-md-offset-2 text-center">
         <div class="input-box input-effect form-group">
             <input name="titulo" ng-model="compromise.titulo" required ng-maxlength="50" class="effect" type="text" placeholder="" maxlength="50" required/>
-            <label>Título</label>
+            <label class="compromiseLabel"> Título</label>
             <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
                 Título obrigatório
             </span>
@@ -23,14 +23,14 @@
 
         <div class="input-box input-effect form-group">
             <input class="effect dateAndTime" ng-flatpickr fp-opts="dateOpts" ng-model="compromise.formattedDate" required>
-            <label class="dateAndHour">Data e Hora</label>
+            <label class="compromiseLabel dateAndHour">Data e Hora</label>
             <span ng-show="formulario.$submitted && formulario.dateTime.$error.required" class="form-control alert-danger">
                 Data e Hora obrigatórios
             </span>
         </div>
         <div class="input-box input-effect form-group">
             <textarea name="descricao" class="effect" ng-model="compromise.descricao"></textarea>
-            <label>Descrição</label>
+            <label class="compromiseLabel"> Descrição</label>
         </div>
 
         <button type="submit" class="compromise-btn" ng-disabled="formulario.$invalid">

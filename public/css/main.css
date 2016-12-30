@@ -196,6 +196,99 @@
 }
 
 /*
+* Checkbox Style
+*/
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+.labelCheck {
+    z-index: 0 !important;
+    text-align: center;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 75px;
+    cursor: pointer;
+}
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before,
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    content: '';
+    position: absolute;
+}
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    left: 0;
+    top: -3px;
+    width: 95px;
+    height: 30px;
+    background: #DDDDDD;
+    border-radius: 15px;
+    transition: background-color .2s;
+}
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    width: 20px;
+    height: 20px;
+    transition: all .2s;
+    border-radius: 50%;
+    background: #ff4450;
+    left: 5px;
+    top: 2px
+}
+
+.status {
+    margin: 0 33px !important;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* On Check */
+[type="checkbox"]:checked + label:before {
+    background: rgba(52, 73, 94, 0.96);
+}
+[type="checkbox"]:checked + label:after {
+    background: #00bed6;
+    top: 2px;
+    left: 70px;
+}
+
+[type="checkbox"]:checked + label .ui,
+[type="checkbox"]:not(:checked) + label .ui:before,
+[type="checkbox"]:checked + label .ui:after {
+  position: absolute;
+  left: 0px;
+  width: 65px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 22px;
+  transition: all .2s;
+}
+[type="checkbox"]:not(:checked) + label .ui:before {
+    font-family: FontAwesome;
+    content: "\f088";
+    color: #676666;
+    width: 100px;
+}
+[type="checkbox"]:checked + label .ui:after {
+    font-family: FontAwesome;
+    content: "\f087";
+    color: #00bed6;
+}
+[type="checkbox"]:focus + label:before {
+    box-sizing: border-box;
+    /*margin-top: -1px;*/
+}
+
+/*
 * Compromise
 */
 
@@ -288,8 +381,7 @@ textarea,
     transition: 0.4s;
 }
 
-label,
-label {
+.compromiseLabel {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -300,7 +392,7 @@ label {
     letter-spacing: 0.5px;
 }
 
-label.dateAndHour {
+.compromiseLabel.dateAndHour {
     top: 4px;
 }
 
@@ -395,7 +487,6 @@ span.flatpickr-weekday {
 
     .compromise-btn  {
         padding: 22px 85px;
-        /*padding: 30px 74px;*/
         margin: 10px auto;
         max-width: 222px;
         display: block;

@@ -24,6 +24,10 @@
 
     <list-compromises class="col-md-12" ng-repeat="compromise in compromises" titulo="{{ compromise.titulo }}" descricao="{{ compromise.descricao }}">
         <div class="row">
+            <p class="status">
+                <input type="checkbox" id="check"/>
+                <label for="check"><span class="ui labelCheck"></span></label>
+            </p>
             <a href="schedule/edit/{{compromise._id}}" class="edit">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
             </a>

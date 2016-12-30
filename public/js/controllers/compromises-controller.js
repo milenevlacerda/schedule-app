@@ -6,11 +6,11 @@ angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'r
     $scope.compromises = [];
     $scope.mensagem = '';
 
-    /* Ordenando compromissos por mais recentes */
+    /* Ordenando compromissos por data mais próxima */
 
     recursoCompromisso.query( function( compromises ) {
         $scope.compromises = compromises.slice().sort( function( a, b ){
-            return new Date( a.dateTime )  >  new Date( b.dateTime ) ? -1 : 1;
+            return new Date( a.dateTime )  <  new Date( b.dateTime ) ? -1 : 1;
         });
     }, function( erro ) {
         console.log( erro );
