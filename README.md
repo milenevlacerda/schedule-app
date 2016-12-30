@@ -1,6 +1,16 @@
 # Schedule App
 -----------------------------------
 
+
+###### Rodando a aplicação
+
+```
+$ npm install
+
+$ npm start
+
+```
+
 ###### Funcionalidades
 
 * Cadastro de compromisso
