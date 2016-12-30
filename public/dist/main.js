@@ -32,27 +32,26 @@ q.directive("ngView",v);q.directive("ngView",A);v.$inject=["$route","$anchorScro
 !function(t,n){"use strict";t["angular-flatpickr"]=n(t.angular,t.flatpickr)}(this,function(t){"use strict";var n=t.module("angular-flatpickr",[]);return n.directive("ngFlatpickr",[function(){return{require:"ngModel",restrict:"A",scope:{fpOpts:"&",fpOnSetup:"&"},link:function(t,n,e,i){var r=new Flatpickr(n[0],t.fpOpts());t.fpOnSetup&&t.fpOnSetup({fpItem:r}),n.on("click",function(){t.$apply(function(){i.$setViewValue(r.selectedDateObj)})})}}}]),n});
 //# sourceMappingURL=ng-flatpickr.min.js.map
 
-angular
-    .module( 'schedule', [
-        'diretivas',
-        'ngRoute',
-        'services',
-        'angular-flatpickr'
-    ])
+/* Templates e Rotas */
+
+angular.module( 'schedule', [ 'diretivas', 'ngRoute', 'services', 'angular-flatpickr' ])
 .config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $locationProvider ) {
 
     $locationProvider.html5Mode( true );
 
+    /* Página inicial */
     $routeProvider.when( '/schedule',{
         templateUrl: 'partials/principal.html',
         controller: 'CompromisesController'
     });
 
+    /* Criação de novo compromisso */
     $routeProvider.when( '/schedule/new',{
         templateUrl: 'partials/compromise.html',
         controller: 'CompromiseController'
     });
 
+    /* Edição de compromisso */
     $routeProvider.when( '/schedule/edit/:compromiseId',{
         templateUrl: 'partials/compromise.html',
         controller: 'CompromiseController'
@@ -62,6 +61,8 @@ angular
 }]);
 
 
+/* Controller de Compromisso */
+
 angular.module( 'schedule' ).controller( 'CompromiseController',
     [ '$scope', 'createCompromise', 'recursoCompromisso', '$routeParams' ,
     function( $scope, createCompromise, recursoCompromisso, $routeParams ) {
@@ -69,12 +70,14 @@ angular.module( 'schedule' ).controller( 'CompromiseController',
     $scope.compromise = {};
     $scope.mensagem = '';
 
+    /* Configurações do flatpickr */
     $scope.dateOpts = {
         dateFormat: 'd/m/Y H:i',
         locale: "pt",
         enableTime: true
     };
 
+    /* Adquirindo todas informações do compromisso */
     if( $routeParams.compromiseId ) {
         recursoCompromisso.get({ compromiseId: $routeParams.compromiseId }, function( compromise ) {
 
@@ -86,6 +89,7 @@ angular.module( 'schedule' ).controller( 'CompromiseController',
         });
     }
 
+    /* Chamando criação de compromisso */
     $scope.submeter = function() {
         if( $scope.formulario.$valid ) {
             createCompromise
@@ -105,6 +109,7 @@ angular.module( 'schedule' ).controller( 'CompromiseController',
 
 }]);
 
+/* Controller de compromissos */
 
 angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'recursoCompromisso',
     function( $scope, recursoCompromisso ) {
@@ -112,6 +117,7 @@ angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'r
     $scope.compromises = [];
     $scope.mensagem = '';
 
+    /* Ordenando compromissos por mais recentes */
 
     recursoCompromisso.query( function( compromises ) {
         $scope.compromises = compromises.slice().sort( function( a, b ){
@@ -120,6 +126,8 @@ angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'r
     }, function( erro ) {
         console.log( erro );
     });
+
+    /* Chamada da remoção de compromisso */
 
     $scope.remover = function( compromise ) {
         recursoCompromisso.delete( { compromiseId: compromise._id }, function() {
@@ -138,9 +146,11 @@ angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'r
 angular.module( 'diretivas', [] )
 .directive( 'listCompromises', function() {
 
+    /* Listagem de compromissos - diretiva */
+
     var ddo = {};
 
-    ddo.restrict = "AE"; // attribute - element
+    ddo.restrict = "E";
 
     ddo.scope = {
         titulo: '@',
@@ -156,6 +166,8 @@ angular.module( 'diretivas', [] )
 
 })
 .directive( 'delete', function() {
+
+    /* Botão delete de cada compromisso */
 
     var ddo = {};
 
@@ -173,6 +185,8 @@ angular.module( 'diretivas', [] )
 })
 .directive( 'meuFocus', function() {
 
+    /* Focus no botão voltar a cada compromisso cadastrado ou enviado */
+
     var ddo = {};
 
     ddo.restrict = "A";
@@ -186,8 +200,6 @@ angular.module( 'diretivas', [] )
     return ddo;
 
 });
-
-/* jshint esversion:6 */
 
 angular.module( 'services', [ 'ngResource' ] )
 .factory( 'recursoCompromisso', function( $resource ) {
@@ -206,11 +218,13 @@ angular.module( 'services', [ 'ngResource' ] )
     servico.create = function( compromise, $scope ) {
         return $q( function( resolve, reject ) {
 
+            /* Formatando data */
             var tempDate = compromise.formattedDate.split('/');
             compromise.dateTime = new Date(`${ tempDate[ 1 ]}/${ tempDate[ 0 ]}/${ tempDate[ 2 ]}`);
 
             if( compromise._id ) {
 
+                /* Chamada da atualização de compromissos */
                 recursoCompromisso.update( { compromiseId: compromise._id }, compromise, function() {
 
                     $rootScope.$broadcast( evento );
@@ -228,6 +242,7 @@ angular.module( 'services', [ 'ngResource' ] )
                 });
             } else {
 
+                /* Salvando novos compromissos */
                 recursoCompromisso.save( compromise, function() {
 
                     $rootScope.$broadcast( evento );

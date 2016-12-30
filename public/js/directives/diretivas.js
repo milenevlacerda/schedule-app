@@ -1,9 +1,11 @@
 angular.module( 'diretivas', [] )
 .directive( 'listCompromises', function() {
 
+    /* Listagem de compromissos - diretiva */
+
     var ddo = {};
 
-    ddo.restrict = "AE"; // attribute - element
+    ddo.restrict = "E";
 
     ddo.scope = {
         titulo: '@',
@@ -20,6 +22,8 @@ angular.module( 'diretivas', [] )
 })
 .directive( 'delete', function() {
 
+    /* Botão delete de cada compromisso */
+
     var ddo = {};
 
     ddo.restrict = "E";
@@ -35,6 +39,8 @@ angular.module( 'diretivas', [] )
 
 })
 .directive( 'meuFocus', function() {
+
+    /* Focus no botão voltar a cada compromisso cadastrado ou enviado */
 
     var ddo = {};
 

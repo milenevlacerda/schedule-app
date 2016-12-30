@@ -1,8 +1,8 @@
-/* jshint esversion: 6*/
-
 var Datastore = require( 'nedb' ),
     dbName = 'schedule.db',
     db;
+
+/* Criando banco */
 
 if( !db ) {
     db = new Datastore({

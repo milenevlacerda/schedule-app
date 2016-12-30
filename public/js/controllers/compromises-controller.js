@@ -1,3 +1,4 @@
+/* Controller de compromissos */
 
 angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'recursoCompromisso',
     function( $scope, recursoCompromisso ) {
@@ -5,6 +6,7 @@ angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'r
     $scope.compromises = [];
     $scope.mensagem = '';
 
+    /* Ordenando compromissos por mais recentes */
 
     recursoCompromisso.query( function( compromises ) {
         $scope.compromises = compromises.slice().sort( function( a, b ){
@@ -13,6 +15,8 @@ angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'r
     }, function( erro ) {
         console.log( erro );
     });
+
+    /* Chamada da remoção de compromisso */
 
     $scope.remover = function( compromise ) {
         recursoCompromisso.delete( { compromiseId: compromise._id }, function() {

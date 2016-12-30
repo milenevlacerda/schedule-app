@@ -1,4 +1,6 @@
 
+/* Controller de Compromisso */
+
 angular.module( 'schedule' ).controller( 'CompromiseController',
     [ '$scope', 'createCompromise', 'recursoCompromisso', '$routeParams' ,
     function( $scope, createCompromise, recursoCompromisso, $routeParams ) {
@@ -6,12 +8,14 @@ angular.module( 'schedule' ).controller( 'CompromiseController',
     $scope.compromise = {};
     $scope.mensagem = '';
 
+    /* Configurações do flatpickr */
     $scope.dateOpts = {
         dateFormat: 'd/m/Y H:i',
         locale: "pt",
         enableTime: true
     };
 
+    /* Adquirindo todas informações do compromisso */
     if( $routeParams.compromiseId ) {
         recursoCompromisso.get({ compromiseId: $routeParams.compromiseId }, function( compromise ) {
 
@@ -23,6 +27,7 @@ angular.module( 'schedule' ).controller( 'CompromiseController',
         });
     }
 
+    /* Chamando criação de compromisso */
     $scope.submeter = function() {
         if( $scope.formulario.$valid ) {
             createCompromise
