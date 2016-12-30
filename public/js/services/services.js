@@ -1,8 +1,8 @@
 /* jshint esversion:6 */
 
-angular.module( 'meusServicos', [ 'ngResource' ] )
+angular.module( 'services', [ 'ngResource' ] )
 .factory( 'recursoCompromisso', function( $resource ) {
-    return $resource( 'v1/schedule/:compromiseId', null, {
+    return $resource( 'compromises/schedule/:compromiseId', null, {
         'update': {
             method: 'PUT'
         }
@@ -14,10 +14,14 @@ angular.module( 'meusServicos', [ 'ngResource' ] )
     var servico = {};
     var evento = 'compromissoCadastrado';
 
-    servico.create = function( compromise ) {
+    servico.create = function( compromise, $scope ) {
         return $q( function( resolve, reject ) {
 
+            var tempDate = compromise.formattedDate.split('/');
+            compromise.dateTime = new Date(`${ tempDate[ 1 ]}/${ tempDate[ 0 ]}/${ tempDate[ 2 ]}`);
+
             if( compromise._id ) {
+
                 recursoCompromisso.update( { compromiseId: compromise._id }, compromise, function() {
 
                     $rootScope.$broadcast( evento );

@@ -6,7 +6,8 @@ body {
 }
 
 a,
-a:hover {
+a:hover,
+a:active {
     text-decoration: none;
     outline: none;
 }

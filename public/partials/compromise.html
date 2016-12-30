@@ -20,17 +20,9 @@
                 Deve ter no máximo 20 caracteres
             </span>
         </div>
-        <div class="input-box input-effect form-group">
-            <input class="effect dateAndTime"
-            locale="pt-br"
-            name="dateTime"
-            ng-model="compromise.dateTime"
-            min-view="month"
-            max-view="hour"
-            format="LLL"
-            moment-picker
-            required/>
 
+        <div class="input-box input-effect form-group">
+            <input class="effect dateAndTime" ng-flatpickr fp-opts="dateOpts" ng-model="compromise.formattedDate" required>
             <label class="dateAndHour">Data e Hora</label>
             <span ng-show="formulario.$submitted && formulario.dateTime.$error.required" class="form-control alert-danger">
                 Data e Hora obrigatórios
@@ -41,11 +33,11 @@
             <label>Descrição</label>
         </div>
 
-        <button type="submit" class="btn compromise-btn" ng-disabled="formulario.$invalid">
+        <button type="submit" class="compromise-btn" ng-disabled="formulario.$invalid">
             <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
             Salvar
         </button>
-         <a href="/" class="btn compromise-btn" meu-focus>
+         <a href="/" class="compromise-btn" meu-focus>
              <i class="fa fa-arrow-left" aria-hidden="true"></i>
              Voltar
          </a>

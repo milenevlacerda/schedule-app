@@ -1,6 +1,5 @@
-/* jshint esversion:6 */
 
-angular.module( 'schedule' ).controller( 'CompromisesController', [ $scope, recursoCompromisso,
+angular.module( 'schedule' ).controller( 'CompromisesController', [ '$scope', 'recursoCompromisso',
     function( $scope, recursoCompromisso ) {
 
     $scope.compromises = [];

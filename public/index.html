@@ -5,29 +5,40 @@
         <base href="/">
         <meta name="viewport" content="width=device-width">
         <title>Agenda</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
-        <script src="js/lib/angular-resource.min.js"></script>
-        <script src="js/lib/angular-route.min.js"></script>
-        <script src="js/main.js"></script>
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="dist/main.concat.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
         <script src="https://use.fontawesome.com/b9fb10b39b.js"></script>
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
-        <script src="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.js"></script>
-        <link href="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.css" rel="stylesheet">
+        <!-- Angular -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 
-        <script src="js/controllers/compromises-controller.js"></script>
-        <script src="js/controllers/compromise-controller.js"></script>
-        <script src="js/directives/diretivas.js"></script>
-        <script src="js/services/meus-servicos.js"></script>
+        <!-- Main Js -->
+        <script src="dist/main.js"></script>
+
+        <!-- Flatpickr -->
+        <script src="https://unpkg.com/flatpickr"></script>
+        <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+        
+        <script>
+            flatpickr(".flatpickr", {
+                locale: "pt",
+                dateFormat: "d/m/Y H:i",
+                enableTime: true
+            });
+        </script>
+
     </head>
     <body>
         <header class="header">
+            <div class="icon">
+                <img src="img/calendar.png" alt="">
+            </div>
             <h1 class="text-center">Agenda</h1>
         </header>
 

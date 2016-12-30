@@ -2,10 +2,10 @@ angular
     .module( 'schedule', [
         'diretivas',
         'ngRoute',
-        'meusServicos',
-        'moment-picker'
+        'services',
+        'angular-flatpickr'
     ])
-.config( function( $routeProvider, $locationProvider ) {
+.config( [ '$routeProvider', '$locationProvider', function( $routeProvider, $locationProvider ) {
 
     $locationProvider.html5Mode( true );
 
@@ -25,4 +25,4 @@ angular
     });
 
     $routeProvider.otherwise( { redirectTo: '/schedule' } );
-});
+}]);

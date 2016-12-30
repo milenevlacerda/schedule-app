@@ -3,11 +3,11 @@ var api = require( '../api' ),
 
 module.exports  = function( app ) {
 
-    app.route( '/v1/schedule' )
+    app.route( '/compromises/schedule' )
         .post( api.create )
         .get( api.list );
 
-    app.route( '/v1/schedule/:compromiseId' )
+    app.route( '/compromises/schedule/:compromiseId' )
         .delete( api.remove )
         .get( api.find )
         .put( api.edit );

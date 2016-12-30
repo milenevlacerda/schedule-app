@@ -7,11 +7,21 @@
 }
 
 .header > h1 {
-    padding: 50px 0;
+    padding: 21px 0 61px;
     margin: 0;
     color: #fff;
-    font-family: 'Lobster', cursive;
-    font-size: 50px;
+    font-family: Lobster,cursive;
+    font-size: 63px;
+}
+
+.icon {
+    margin: 0 auto;
+    padding-top: 40px;
+    width: 100px;
+}
+
+.icon img {
+    max-width: 100%;
 }
 
 .new-compromise {
@@ -87,6 +97,7 @@
 .box > h3 {
     font-size: 25px;
     color: rgb(255, 68, 80);
+    word-wrap: break-word;
     font-weight: 500;
     vertical-align: middle;
     display: inline;
@@ -157,6 +168,7 @@
 .new-compromise-button:hover {
     color: #9600e9;
     z-index: 0;
+    text-decoration: none;
     border-color: #9600e9;
 }
 
@@ -193,26 +205,31 @@
 
 .compromise-title {
     color: #ff4450;
+    word-wrap: break-word;
     font-weight: 300;
 }
 
 .compromise-btn {
-    padding: 20px 75px;
+    padding: 30px 98px;
+    display: inline-block;
     background: #ff4450;
     color: #fff;
+    margin: 0 5px;
+    cursor: pointer;
     border: none;
     font-size: 17px;
     font-weight: 600;
     will-change: background;
     transition: background .4s ease;
 }
-
-.compromise-btn {
-    margin-right: 10px;
+.compromise-btn:hover {
+    background: #ff747d;
 }
 
-.btn:hover {
-    background: rgba(#ff4450, 0.5) !important;
+a.compromise-btn:hover,
+a.compromise-btn:focus {
+    color: #fff;
+    text-decoration: none;
 }
 
 /*
@@ -226,7 +243,8 @@
 }
 
 input,
-textarea {
+textarea,
+.dateInput {
     width: 100%;
     color: #666666;
     font-size: 20px;
@@ -302,23 +320,58 @@ label.dateAndHour {
 /*
 * Date Picker
 */
-.moment-picker .moment-picker-container {
-    top: auto;
-    bottom: 100%;
+.flatpickr-calendar.open {
+    font-family: 'Raleway', sans-serif !important;
+    width: 340px !important;
     color: rgb(152, 99, 183) !important;
-    width: 405px;
-    font-size: 20px;
-    font-family: 'Lato', sans-serif;
-    margin-top: auto;
-    margin-bottom: 7px;
+    font-size: 15px;
 }
 
-.moment-picker .moment-picker-container.month-view.open {
-    background: #fff;
-    min-height: 340px;
+.flatpickr-rContainer {
+    width: 100%;
 }
-.moment-picker-container thead:first-child {
-    color: #ff4450;
+
+span.flatpickr-weekday {
+    font-size: 100% !important;
+    color: rgb(152, 99, 183) !important;
+}
+
+.dateIsPicked .flatpickr-innerContainer + .flatpickr-time {
+    border: 1px solid #e6e6e6 !important;
+}
+
+.flatpickr-day.selected {
+    background: #ff4450 !important;
+    color: #fff !important;
+    border-color: #ff4450 !important;
+}
+
+.flatpickr-day {
+    font-weight: 500 !important;
+    max-width: 35px !important;
+    height: 38px !important;
+    margin: 1px 6px !important;
+}
+
+.flatpickr-days {
+    width: 100% !important;
+}
+
+.flatpickr-day.prevMonthDay {
+    margin: 6px;
+}
+
+.flatpickr-calendar.dateIsPicked.hasTime .flatpickr-time {
+    background: #fff !important;
+}
+
+.flatpickr-month {
+    color: #ff4450 !important;
+    height: 40px !important;
+}
+
+.flatpickr-current-month {
+    top: 7px !important;
 }
 
 
@@ -335,5 +388,15 @@ label.dateAndHour {
 
     .box.-title {
         padding-bottom: 20px;
+    }
+}
+
+@media ( max-width: 592px) {
+
+    .compromise-btn  {
+        padding: 30px 74px;
+        margin: 10px auto;
+        max-width: 222px;
+        display: block;
     }
 }

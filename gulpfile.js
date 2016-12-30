@@ -1,34 +1,33 @@
-var gulp   = require("gulp");
-var uglify = require("gulp-uglify");
-var watch  = require("gulp-watch");
-var jshint = require("gulp-jshint");
-var concat = require("gulp-concat");
+let gulp      = require("gulp");
+var uglify    = require("gulp-uglify");
+var concat    = require("gulp-concat");
+var rename    = require('gulp-rename');
+var cssmin    = require('gulp-cssmin');
+var concatCss = require('gulp-concat-css');
 
 
-gulp.task( "default", function() {
-    console.log( "Gulp default task is working!" );
-});
-
-
-gulp.task('uglifyJS', function () {
-    gutil.log('Starting uglifyJS task.');
+gulp.task( 'scripts', () => {
 
     gulp.src([
-        'public/js/main.js',
-        'public/js/controllers/*.js',
-        'public/js/controllers/*.js',
-        'public/js/services/*.js'
+        './public/js/lib/*.js',
+        './public/js/main.js',
+        './public/js/controllers/*.js',
+        './public/js/directives/*.js',
+        './public/js/services/*.js',
     ])
-    .pipe( uglifyJS() )
-    .pipe( gulp.dest( 'dist/js' ));
+    .pipe( concat( 'main.js' ) )
+    .pipe( gulp.dest( './public/dist' ) );
 });
 
-gulp.task('uglifyCSS', function () {
-    gutil.log('Starting uglifyCSS task.');
+gulp.task('styles', function () {
+    console.log('Minificando CSS...');
 
-    gulp.src([
-        'public/css/main.css'
-    ])
-    .pipe( uglifyJS() )
-    .pipe( gulp.dest( 'dist/css' ));
+    gulp.src([ './public/css/*.css' ])
+        .pipe( concatCss( 'main.concat.css' ) )
+        .pipe( cssmin() )
+        .pipe( rename( 'main.concat.min.css' ) )
+        .pipe( gulp.dest( './public/dist' ) );
+
 });
+
+gulp.task('default', ['scripts', 'styles']);
