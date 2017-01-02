@@ -274,13 +274,13 @@
 }
 [type="checkbox"]:not(:checked) + label .ui:before {
     font-family: FontAwesome;
-    content: "\f088";
+    content: "\f00d";
     color: #676666;
     width: 100px;
 }
 [type="checkbox"]:checked + label .ui:after {
     font-family: FontAwesome;
-    content: "\f087";
+    content: "\f00c";
     color: #00bed6;
 }
 [type="checkbox"]:focus + label:before {
